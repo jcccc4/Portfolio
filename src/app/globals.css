@@ -2,26 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  html,
+  body {
+    @apply text-[#2c2c2c] overflow-x-hidden;
+  }
+  h1{
+    @apply text-h1 font-black
+  }
+  h2{
+    @apply text-h2 font-bold uppercase
+  }
+  h3{
+    @apply text-h3 font-bold
+  }
+  p{
+    @apply text-p 
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+@layer components{
+  .formInputs{
+    @apply absolute bottom-0 px-4 text-p focus:outline-0
+  }
+  .formSpan{
+    @apply absolute bottom-2 left-4 font-bold z-10 opacity-50
+  }
+  .formSection{
+    @apply relative  border-b border-b-black
+  }
 }
