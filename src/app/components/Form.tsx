@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef } from "react";
+import Image from "next/image";
 import emailjs from "@emailjs/browser";
 import Button from "./Button";
 
@@ -49,18 +50,41 @@ export default function Form({}: Props) {
     event.target.value
       ? ref.current?.classList.add("hidden")
       : ref.current?.classList.remove("hidden");
+
+    event.target.type === "email"
+      ? validateEmail(event)
+      : validateString(event);
+  };
+  const validateEmail = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ): void => {
+    if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(e.target.value)) {
+      console.log("valid");
+    } else {
+      console.log("invalid");
+    }
+  };
+  const validateString = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ): void => {
+    e.target.value ? console.log("valid") : console.log("invalid");
   };
   return (
     <>
-      <form ref={form} className="flex flex-col gap-y-2">
-        <section className="formSection h-12">
+      <form ref={form} className="flex flex-col gap-y-2 ">
+        <section className="formSection h-12 ">
           <label>
-            <span
-              ref={username}
-              className="formSpan"
-            >
+            <span ref={username} className="formSpan">
               Name
             </span>
+            <Image
+              src={"/icons/check-circle.svg"}
+              alt={"Correct Input"}
+              width={18}
+              height={18}
+              className="absolute bottom-1 right-1"
+            />
+
             <input
               type="text"
               name="user_name"
@@ -72,12 +96,16 @@ export default function Form({}: Props) {
         </section>
         <section className="formSection h-12">
           <label>
-            <span
-              ref={email}
-              className="formSpan"
-            >
+            <span ref={email} className="formSpan">
               E-mail
             </span>
+            <Image
+              src={"/icons/check-circle.svg"}
+              alt={"Correct Input"}
+              width={18}
+              height={18}
+              className="absolute bottom-1 right-1"
+            />
             <input
               type="email"
               name="user_email"
@@ -87,7 +115,7 @@ export default function Form({}: Props) {
             />
           </label>
         </section>
-        <section className="formSection h-20">
+        <section className="formSection h-20 ">
           <label>
             <span
               ref={message}
@@ -95,6 +123,13 @@ export default function Form({}: Props) {
             >
               Message
             </span>
+            <Image
+              src={"/icons/check-circle.svg"}
+              alt={"Correct Input"}
+              width={18}
+              height={18}
+              className="absolute bottom-1 right-1 z-10"
+            />
             <textarea
               name="message"
               className="formInputs h-full w-full"
@@ -103,7 +138,11 @@ export default function Form({}: Props) {
             />
           </label>
         </section>
-        <Button type="submit" additionalStyles={"mt-5 mb-[470px]"} clickHandler={sendEmail}>
+        <Button
+          type="submit"
+          additionalStyles={"mt-5 mb-[470px]"}
+          clickHandler={sendEmail}
+        >
           Send
         </Button>
       </form>
