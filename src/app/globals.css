@@ -24,7 +24,7 @@
 
 @layer components{
   .formInputs{
-    @apply absolute bottom-0 px-4 text-p focus:outline-0
+    @apply absolute bottom-0 pl-4 pr-6 text-p w-full focus:outline-0
   }
   .formSpan{
     @apply absolute bottom-2 left-4 font-bold z-10 opacity-50
