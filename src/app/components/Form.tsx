@@ -22,8 +22,9 @@ export default function Form({}: Props) {
   const sendEmail = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const isFormValid = isValidName && isValidEmail && isValidMessage;
-    statusMessageRef.current?.classList.remove('hidden')
-    setIsFormValid(isFormValid)
+    statusMessageRef.current?.classList.remove("hidden");
+    statusMessageRef.current?.classList.add("flex", "flex-row", "gap-2");
+    setIsFormValid(isFormValid);
     if (form.current && isFormValid) {
       emailjs
         .sendForm(
@@ -47,14 +48,15 @@ export default function Form({}: Props) {
     }
   };
 
-  const focusHandler = () => {
+  const focusHandler = (ref: React.RefObject<HTMLSpanElement>) => {
+    ref.current?.classList.add("hidden");
     setIsFocused(true);
   };
 
   const blurHandler = (
     event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
     ref: React.RefObject<HTMLSpanElement>
-  ) => {  
+  ) => {
     event.target.value || ref.current?.classList.remove("hidden");
   };
 
@@ -121,7 +123,7 @@ export default function Form({}: Props) {
               type="text"
               name="user_name"
               className="formInputs"
-              onFocus={(event) => focusHandler()}
+              onFocus={() => focusHandler(username)}
               onBlur={(event) => blurHandler(event, username)}
               onChange={(event) => changeHandler(event, username)}
             />
@@ -154,7 +156,7 @@ export default function Form({}: Props) {
               type="email"
               name="user_email"
               className="formInputs"
-              onFocus={(event) => focusHandler()}
+              onFocus={() => focusHandler(email)}
               onBlur={(event) => blurHandler(event, email)}
               onChange={(event) => changeHandler(event, email)}
             />
@@ -188,8 +190,8 @@ export default function Form({}: Props) {
               ))}
             <textarea
               name="message"
-              className="formInputs h-full w-full"
-              onFocus={(event) => focusHandler()}
+              className="formInputs h-full w-full p-2"
+              onFocus={() => focusHandler(message)}
               onBlur={(event) => blurHandler(event, message)}
               onChange={(event) => changeHandler(event, message)}
             />
@@ -202,7 +204,28 @@ export default function Form({}: Props) {
         >
           Send
         </Button>
-        <span ref={statusMessageRef} className="hidden">{isFormValid?"Message Sent":"Invalid Input"}</span>
+        <span ref={statusMessageRef} className={`hidden`}>
+          {isFormValid ? (
+            <span className="text-green-500">Message Sent</span>
+          ) : (
+            <span className="text-red-500">There are invalid inputs</span>
+          )}
+          {isFormValid ? (
+            <Image
+              src={"/icons/check-circle.svg"}
+              alt={"Correct Input"}
+              width={18}
+              height={18}
+            />
+          ) : (
+            <Image
+              src={"/icons/delete-circle.svg"}
+              alt={"Correct Input"}
+              width={18}
+              height={18}
+            />
+          )}
+        </span>
       </form>
     </>
   );

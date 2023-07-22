@@ -5,13 +5,13 @@
 @layer base {
   html,
   body {
-    @apply text-[#2c2c2c] overflow-x-hidden;
+    @apply text-[#2c2c2c] 
   }
   h1{
     @apply text-h1 font-black
   }
   h2{
-    @apply text-h2 font-bold uppercase
+    @apply text-h2 font-bold uppercase sticky top-0 h-9 bg-white text-accent-blue
   }
   h3{
     @apply text-h3 font-bold
