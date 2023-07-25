@@ -11,7 +11,7 @@ export default function Footer({}: Props) {
       <h2>Contact</h2>
       <p>
         I am excited to connect with like-minded individuals, businesses, or
-        organizations, so please don't hesitate to contact me. 
+        organizations, so please don&apos;t hesitate to contact me. 
       </p>
     <Form />
     </div>
