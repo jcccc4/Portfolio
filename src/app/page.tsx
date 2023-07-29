@@ -1,16 +1,16 @@
 import Header from "./components/Header";
-import SocialLinks from "@/app/components/SocialLinks";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 export default function Home() {
   return (
-    <main className="mx-6">
+    <main className="mx-6 lg:mx-20 lg:grid  lg:grid-cols-2">
       <Header />
-      <SocialLinks />
-      <Experience />
-      <Projects />
-      <Footer />
+      <div>
+        <Experience />
+        <Projects />
+        <Footer />
+      </div>
     </main>
   );
 }

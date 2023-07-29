@@ -94,7 +94,7 @@ export default function Form({}: Props) {
 
   return (
     <>
-      <form ref={form} className="flex flex-col gap-y-2  mb-[470px]">
+      <form ref={form} className="flex flex-col gap-y-2  ">
         <section className="formSection h-12 ">
           <label>
             <span ref={username} className="formSpan">

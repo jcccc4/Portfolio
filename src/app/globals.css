@@ -5,19 +5,19 @@
 @layer base {
   html,
   body {
-    @apply text-[#2c2c2c] 
+    @apply text-[#2c2c2c] scroll-smooth
   }
   h1{
-    @apply text-h1 font-black
+    @apply text-h1 font-black lg:text-h1-lg
   }
   h2{
-    @apply text-h2 font-bold uppercase sticky top-0 h-9 bg-white text-accent-blue
+    @apply text-h2 font-bold uppercase  text-accent-blue lg:text-h2-lg
   }
   h3{
-    @apply text-h3 font-bold
+    @apply text-h3 font-bold lg:text-h3-lg
   }
   p{
-    @apply text-p 
+    @apply text-p lg:text-p-lg
   }
 }
 

@@ -4,8 +4,8 @@ type Props = {};
 
 export default function Experience({}: Props) {
   return (
-    <div className="mt-10">
-      <h2 className="sticky top-0">EXPERIENCE</h2>
+    <div id="experience" className="pt-10">
+      <h2>EXPERIENCE</h2>
       <div>
         <div className="mt-4">
           <div className="flex justify-between">
@@ -16,7 +16,7 @@ export default function Experience({}: Props) {
             <h3>2022-PRESENT</h3>
           </div>
 
-          <p className="mt-2 max-w-[540px]">
+          <p className="mt-2 max-w-[540px] ">
             Leading technology migrations, addressed medium to Snyk issues,
             ensuring compliance with regulations, enhancing user experiences,
             identifying and resolving monitoring gaps, and effectively managing

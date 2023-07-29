@@ -3,9 +3,9 @@ import Card from "./Card";
 
 const Projects = () => {
   return (
-    <div>
-      <h2 className="mt-10 ">PROJECTS</h2>
-      <section className="flex flex-col mt-4 gap-4 md:flex-row ">
+    <div id="projects">
+      <h2 className="pt-10 ">PROJECTS</h2>
+      <section className="flex flex-col mt-4 gap-4 md:flex-row lg:flex-col">
         <Card
           title={"Social Media Dashboard"}
           link={"https://social-media-dashboard-my7f3xfk9-jcccc4.vercel.app/"}
